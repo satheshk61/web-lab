@@ -1,0 +1,8 @@
+#section3 {
+    background-color: #e0f7fa;
+    border: 2px dashed #00796b;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 121, 107, 0.5);
+    border-radius: 12px;
+    color: #004d40;
+}
