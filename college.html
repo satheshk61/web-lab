@@ -19,103 +19,49 @@
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            background-color: #388e3c;
-            padding: 0.75rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 1rem;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #ddd;
-        }
-        main {
-            padding: 1rem;
-            max-width: auto;
-            margin: 0 auto;
-            background: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
-        }
-        main h2 {
-            color: #4caf50;
-            margin-top: 0;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
+        .datetime-display {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
             font-size: 0.9rem;
         }
+        .user-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        /* ... rest of your existing styles ... */
     </style>
 </head>
 <body>
     <header>
         <h1>Adhiyamaan College of Engineering</h1>
+        <p>Excellence in Education Since 1987</p>
+        <div class="datetime-display" id="datetime"></div>
+        <div class="user-info">Current User: satheshk61</div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#faculty">Our Faculties</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#library">Library</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="faculty">
-            <h2>Our Faculty</h2>
-            <ul>
-                <li>Dr.A.Kumar-CSE</li>
-                <li>Dr.S.Sri-ECE</li>
-                <li>Dr.Ramu-IT</li>
-                <li>Dr.A.Kumaran-EEE</li>
+    <!-- ... rest of your existing content ... -->
 
-            </ul>
-        </section>
-        <section id="courses">
-            <h2>Courses</h2>
-            <ul>
-                <li>Computer Science and Engineering</li>
-                <li>Electronics and Communication Engineering</li>
-                <li>information Technology</li>
-                <li>Electronics and Communication Engineering</li>
-            </ul>
-        </section>
-        <section id="library">
-            <h2>Library</h2>
-            <p>Our Library offers a vast colllection of books,journals,and digital resources,providing extensive support for both learning and research</p>
-        </section>
-    </main>
-    <footer>
-        <section id="contact">
-            <h2>Contact</h2>
-            <address>
-                Adhiyamaan College of Engineering<br />
-                Hosur, Tamil Nadu, India<br />
-                Phone: +91 4344 272 207<br />
-                Email: info@adhiyamaan.ac.in
-            </address>
-        </section>
-        &copy; 2025 Adhiyamaan College of Engineering. All rights reserved.
-    </footer>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const year = now.getUTCFullYear();
+            const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+            const day = String(now.getUTCDate()).padStart(2, '0');
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+            
+            const formattedDateTime = `Current Date and Time (UTC): ${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            document.getElementById('datetime').textContent = formattedDateTime;
+        }
+
+        // Update immediately and then every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
 </body>
 </html>
